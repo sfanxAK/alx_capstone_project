@@ -19,39 +19,36 @@ This project is a blogging platform built using HTML, CSS, and Flask. designed t
 
 ## Technologies Used
 
-<img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white">   :  A micro web framework for Python.
-
 <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="Html_badget"/>   :  For front-end development.
 
 <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="css_badget" />   :  For front-end styling.
+
+<img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white">   :  A micro web framework for Python.
 
 <img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL_badget">   :  Relational database for storing user and blog data.
 
 <img src="https://img.shields.io/badge/jinja-white.svg?style=for-the-badge&logo=jinja&logoColor=black">   :  Template engine for rendering dynamic HTML.
 
+
 ## Project Structure
 
-app/                  # Contains all the main application files
-│
-├── static/           # Contains static files such as CSS and media assets
-│   ├── home.css              # Main styling for the homepage
-│   ├── style_dashboard.css   # Styling for the dashboard
-│   ├── style_login.css       # Styling for the login page
-│   ├── style_register.css    # Styling for the register page
-│   ├── media/                # Contains media files like images
-│
-├── templates/        # Contains HTML templates for the application
-│   ├── home.html          # Template for the homepage
-│   ├── Recipes.html       # Recipe page where users can view and share recipes
-│   ├── about_us.html      # About Us page
-│   ├── login.html         # Template for the login page
-│   ├── register.html      # Template for the register page
-│   ├── error.html         # Error page for unexpected errors
-│   ├── dashboard.html     # Template for the dashboard
-│
-├── app.py            # Main Flask application file that routes requests and handles business logic
-├── README.md         # Project documentation
-
+- `app/`
+    - `static/` (Contains static files such as CSS and media assets)
+        - `home.css`
+        - `style_dashboard.css`
+        - `style_login.css`
+        - `style_register.css`
+        - `media/` (Contains media files like images)
+    - `templates/` (Contains HTML templates for the application)
+        - `home.html`
+        - `Recipes.html` (Recipe page where users can view and share recipes)
+        - `about_us.html`
+        - `login.html`
+        - `register.html`
+        - `error.html`
+        - `dashboard.html`
+    - `app.py` (Main Flask application file that routes requests and handles business logic)
+    - `README.md` (Project documentation)
 
 
 ## Installation
