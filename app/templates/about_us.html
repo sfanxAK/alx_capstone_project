@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='media/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <title>Recipe Lab : about</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-wrapper">
+            <!-- Logo -->
+            <div class="logo-container">
+                <img class="logo" src="{{ url_for('static', filename='media/recipelab_logo.png') }}" alt="Logo">
+            </div>
+
+            <!-- Middle Navigation Bar -->
+            <div class="middle-nav">
+                <ul class="middle-nav-tabs">
+                    <li class="middle-nav-tab">
+                        <a href="{{ url_for('home') }}" class="{{ 'active' if request.endpoint == 'home' else '' }}">Home</a>
+                    </li>
+                    <li class="middle-nav-tab">
+                        <a href="{{ url_for('Recipes') }}" class="{{ 'active' if request.endpoint == 'Recipes' else '' }}">Recipes</a>
+                    </li>
+                    <li class="middle-nav-tab">
+                        <a href="{{ url_for('about_us') }}" class="{{ 'active' if request.endpoint == 'about_us' else '' }}">About</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right Navigation Bar -->
+            <nav class="nav-menu">
+                <input type="checkbox" id="menuToggle" class="menu-toggle">
+                <label class="menu-btn" for="menuToggle">
+                    <span class="menu-icon"></span>
+                </label>
+                <div class="nav-container">
+                    <!-- Mobile Menu Items -->
+                    <ul class="mobile-nav-tabs">
+                        <li class="mobile-nav-tab">
+                            <a href="{{ url_for('home') }}" class="{{ 'active' if request.endpoint == 'home' else '' }}">Home</a>
+                        </li>
+                        <li class="mobile-nav-tab">
+                            <a href="{{ url_for('Recipes') }}" class="{{ 'active' if request.endpoint == 'Recipes' else '' }}">Recipes</a>
+                        </li>
+                        <li class="mobile-nav-tab">
+                            <a href="{{ url_for('about_us') }}" class="{{ 'active' if request.endpoint == 'about_us' else '' }}">About</a>
+                        </li>
+                        <li class="mobile-nav-tab joinus-but">
+                            <a href="{{ url_for('register') }}">
+                                <button>Join us</button>
+                            </a>
+                        </li>
+                        <li class="mobile-nav-tab">
+                            <a href="{{ url_for('login') }}" class="nav-link">
+                                <button>Login</button>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Desktop Nav Tabs -->
+                    <ul class="desktop-nav-tabs">
+                        <li class="nav-tab joinus-but">
+                            <a href="{{ url_for('register') }}">
+                                <button>Join us</button>
+                            </a>
+                        </li>
+                        <li class="nav-tab login-but">
+                            <a href="{{ url_for('login') }}" class="nav-link">
+                                <button>Login</button>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-about">
+        <!-- Title Section -->
+        <div class="about-hero">
+            <div class="mission">
+                <h2>Our Mission</h2>
+                <div class="separator"></div>
+                <p>We believe that cooking is more than just preparing meals – it's about creating memories, 
+                sharing traditions, and bringing people together. Our platform is dedicated to making the 
+                joy of cooking accessible to everyone, from beginners to seasoned chefs.</p>
+            </div>
+        </div>
+        <section class="title-section-about">
+            <div class="title-container-about">
+                <div class="features">
+                    <div class="feature-card">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 13.87A4 4 0 0 1 7.41 6a5.11 5.11 0 0 1 1.05-1.54 5 5 0 0 1 7.08 0A5.11 5.11 0 0 1 16.59 6 4 4 0 0 1 18 13.87V21H6Z"></path><line x1="6" y1="17" x2="18" y2="17"></line></svg>
+                        </div>
+                        <h3>5000+</h3>
+                        <p>Curated Recipes</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        </div>
+                        <h3>100K+</h3>
+                        <p>Active Members</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="icon-wrapper">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"></path><path d="M7 2v20"></path><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"></path></svg>
+                        </div>
+                        <h3>50K+</h3>
+                        <p>Recipe Saves</p>
+                    </div>
+                </div>
+
+                <div class="join-section">
+                    <h2>Join Our Culinary Community</h2>
+                    <div class="separator"></div>
+                    <p class="about-description">Start your cooking journey today and become part of our growing family of food enthusiasts</p>
+                    <a href="{{ url_for('register') }}">
+                        <button class="cta-button">
+                            <span class="button-text">Become a Member</span>
+                        </button>
+                    </a>
+                    <p class="member-count">Join 50,000+ food enthusiasts already sharing their passion</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="Footer-Section">
+            <div class="footer-container">
+                <div class="logo-footer-container">
+                    <img class="logo-footer" src="{{ url_for('static', filename='media/recipelab_logo.png') }}" alt="Footer Logo">
+                </div>
+                <div class="icons">
+                    <a class="Social-icon Facebook_icon" href="#" aria-label="Facebook">
+                        <img src="{{ url_for('static', filename='media/facebook_icon.png') }}" alt="Facebook logo">
+                    </a>
+                    <a class="Social-icon Twitter_icon" href="#" aria-label="Twitter">
+                        <img src="{{ url_for('static', filename='media/x_icon.png') }}" alt="Twitter logo">
+                    </a>
+                    <a class="Social-icon Instagram_icon" href="#" aria-label="Instagram">
+                        <img src="{{ url_for('static', filename='media/Instagram_icon.png') }}" alt="Instagram logo">
+                    </a>
+                </div>
+            </div>
+            <p>&copy; 2024 RecipeLab. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

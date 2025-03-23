@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/icon" href="{{ url_for('static', filename='media/favicon.ico') }}">
+    <link rel='stylesheet' href="{{ url_for('static', filename='style_dashboard.css') }}">
+    <title>Dashboard : {{ username }}</title>
+</head>
+<body>
+  <!-- Navbar -->
+    <header>
+        <div class="nav-container">                        
+            <ul class="nav-tabs"> 
+                <li class="nav-tab nav-username">
+                    <a>{{ username }}</a><img class="user-image" src="https://raw.githubusercontent.com/sfanxAK/Blog_post/refs/heads/main/chef%20(1).png">
+                </li>
+                <li class="logo-container">
+                    <img class="logo" src="{{ url_for('static', filename='media/recipelab_logo.png') }}" alt="Logo">
+                </li>
+                <li class="nav-tab"><a href="/logout" class="nav-link"><button><p>Logout</p> <svg class="icon">
+                    <use xlink:href="#icon-arrow-right"></use>
+                  </svg></button></a></li>
+            </ul>
+        </div>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" class="icons">
+            <symbol id="icon-arrow-right" viewBox="0 0 1792 1792">
+              <path d="M1600 960q0 54-37 91l-651 651q-39 37-91 37-51 0-90-37l-75-75q-38-38-38-91t38-91l293-293H245q-52 0-84.5-37.5T128 1024V896q0-53 32.5-90.5T245 768h704L656 474q-38-36-38-90t38-90l75-75q38-38 90-38 53 0 91 38l651 651q37 35 37 90z" />
+            </symbol>
+        </svg>
+    </header>
+    <!-- End of navbar -->
+    
+    <main>
+        <!-- Create Post Section --> 
+        <form class="post-section" action="{{ url_for('create_post') }}" method="POST">
+            <!-- Remove the label and input for the title -->
+            <textarea id="content" name="content" placeholder=" Write a recipe ..." autocomplete="off" required></textarea><br>
+            <div class="post-btn">
+                <input type="submit" value="Post">
+            </div>
+        </form>
+    
+        <!-- Post Section -->
+        <ul class="posts-list">
+            {% for post_id, post in posts.items() %}
+            <li class="posts-section">
+                <div class="post-author">
+                    <img class="author-image" src="https://raw.githubusercontent.com/sfanxAK/Blog_post/refs/heads/main/chef%20(1).png">
+                    <div class="author-info">
+                        <a>{{ post['username_post'] }}</a> 
+                        <p class="post-date">{{ post['created_at'] }}</p>
+                    </div>
+                </div>
+                <p class="post">{{ post['content'] }}</p>
+                <hr style="border: none; height: 0.5px; background-color: #d8d8d8; margin: 20px 0;">
+
+                <!-- Replays Section -->
+                <ul class="comments">
+                    {% for comment in post['comments'] %}
+                    <div class="comment-author">
+                        <img class="author-image" src="https://raw.githubusercontent.com/sfanxAK/Blog_post/refs/heads/main/chef%20(1).png">
+                        <div class="reply-info">
+                            <a> {{ comment['username'] }}</a>
+                            <p class="comment-date">{{ comment['comment_created_at'] }}</p>
+                        </div>
+                    </div>
+                    
+                    <li>{{ comment['comment_text'] }}</li>
+                    {% endfor %}
+                </ul>
+
+                <!-- Add comment section -->
+                <form class="add-comment-section" action="{{ url_for('create_comment') }}" method="POST">
+                    <input type="hidden" name="post_id" value="{{ post_id }}"> <!-- Hidden input to store post ID -->
+                    <textarea name="comment_text" placeholder=" Add a comment..." required></textarea><br>
+                    <input type="submit" value="Reply">
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+
+    </main>
+
+    <footer>
+        <div class="Footer-Section">
+            <div class="footer-container">
+                <div class="logo-footer-container">
+                    <img class="logo-footer" src="{{ url_for('static', filename='media/recipelab_logo.png') }}" alt="Footer Logo">
+                </div>
+                <div class="social-icons">
+                    <a class="Social-icon Facebook_icon" href="#" aria-label="Facebook">
+                        <img src="{{ url_for('static', filename='media/facebook_icon.png') }}" alt="Facebook logo">
+                    </a>
+                    <a class="Social-icon Twitter_icon" href="#" aria-label="Twitter">
+                        <img src="{{ url_for('static', filename='media/x_icon.png') }}" alt="Twitter logo">
+                    </a>
+                    <a class="Social-icon Instagram_icon" href="#" aria-label="Instagram">
+                        <img src="{{ url_for('static', filename='media/Instagram_icon.png') }}" alt="Instagram logo">
+                    </a>
+                </div>
+            </div>
+            <p>&copy; 2024 RecipeLab. All rights reserved.</p>
+        </div>
+    </footer>
+     
+
+</body>
+</html>
+

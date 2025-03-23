@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='media/favicon.ico') }}">
+    <link rel='stylesheet' href="{{ url_for('static', filename='style_register.css') }}">
+    <title>Recipe Lab : Sing Up</title>
+</head>
+<body>
+    <header>
+      <div class="nav-wrapper">
+          <!-- Logo -->
+          <div class="logo-container">
+              <img class="logo" src="{{ url_for('static', filename='media/recipelab_logo.png') }}" alt="Logo">
+          </div>
+
+          <!-- Middle Navigation Bar -->
+          <div class="middle-nav">
+              <ul class="middle-nav-tabs">
+                  <li class="middle-nav-tab">
+                      <a href="{{ url_for('home') }}" class="{{ 'active' if request.endpoint == 'home' else '' }}">Home</a>
+                  </li>
+                  <li class="middle-nav-tab">
+                      <a href="{{ url_for('Recipes') }}" class="{{ 'active' if request.endpoint == 'Recipes' else '' }}">Recipes</a>
+                  </li>
+                  <li class="middle-nav-tab">
+                      <a href="{{ url_for('about_us') }}" class="{{ 'active' if request.endpoint == 'about_us' else '' }}">About</a>
+                  </li>
+              </ul>
+          </div>
+
+          <!-- Right Navigation Bar -->
+        <nav class="nav-menu">
+          <input type="checkbox" id="menuToggle" class="menu-toggle">
+          <label class="menu-btn" for="menuToggle">
+              <span class="menu-icon"></span>
+          </label>
+          <div class="nav-container">
+              <!-- Mobile Menu Items -->
+              <ul class="mobile-nav-tabs">
+                  <li class="mobile-nav-tab">
+                      <a href="{{ url_for('home') }}" class="{{ 'active' if request.endpoint == 'home' else '' }}">Home</a>
+                  </li>
+                  <li class="mobile-nav-tab">
+                      <a href="{{ url_for('Recipes') }}" class="{{ 'active' if request.endpoint == 'Recipes' else '' }}">Recipes</a>
+                  </li>
+                  <li class="mobile-nav-tab">
+                      <a href="{{ url_for('about_us') }}" class="{{ 'active' if request.endpoint == 'about_us' else '' }}">About</a>
+                  </li>
+              </ul>
+            </div>
+        </nav>
+      </div>
+    </header>
+    
+    <main>
+        <!--"Title section"-->
+      <section class="title-section">
+        <div class="title-container">
+          <div>
+            <h2 class="title">One of us?</h2>
+            <p class="sub-title"> If you already has an account, just sign in
+              <br> We've missed you!</p>
+          </div>
+          <a href="{{ url_for('login') }}" class="login-but">
+            <button>Login</button> 
+          </a>
+
+        </div>
+      </section>
+
+      <!-- Login form container -->
+      <div class="grid">
+        <h6>Registration</h6>  
+        <!-- Error message section -->
+        {% if message %}
+          <div class="alert">{{ message }}</div>
+        {% endif %}
+  
+        <!-- Registration form -->
+        <form action="{{ url_for('register') }}" method="POST" class="form login">
+          <!--username input-->
+          <div class="form__field">
+            <label for="username"><svg class="icon">
+                <use xlink:href="#icon-user"></use>
+              </svg><span class="hidden">Username</span></label>
+            <input autocomplete="username" id="login__username" type="text" name="username" class="form__input" placeholder="Username" required>
+          </div>
+          <!--email input-->
+          <div class="form__field">
+            <label for="email">
+              <svg class="icon">
+                <use xlink:href="#icon-envelope"></use>
+              </svg>
+              <span class="hidden">Email</span>
+            </label>
+            <input autocomplete="email" id="login__email" type="email" name="email" class="form__input" placeholder="Email" required>
+          </div>
+          <!--password input-->
+          <div class="form__field">
+            <label for="password"><svg class="icon">
+                <use xlink:href="#icon-lock"></use>
+              </svg><span class="hidden">Password</span></label>
+            <input id="login__password" type="password" name="password" class="form__input" placeholder="Password" required>
+          </div>
+  
+          <div class="form__field">
+            <input type="submit" value="Sign Up">
+          </div>
+    
+        </form>
+    
+    
+      </div>
+    
+      <svg xmlns="http://www.w3.org/2000/svg" class="icons">
+        <symbol id="icon-envelope" viewBox="0 0 24 24">
+          <path d="M12 12.713l-11.985-9.713h23.971l-11.986 9.713zm-5.425-1.822l-6.575-5.329v12.501l6.575-7.172zm10.85 0l6.575 7.172v-12.501l-6.575 5.329zm-1.557 1.261l-3.868 3.135-3.868-3.135-8.11 8.848h23.956l-8.11-8.848z"/>        </symbol>
+        
+        <symbol id="icon-lock" viewBox="0 0 1792 1792">
+          <path d="M640 768h512V576q0-106-75-181t-181-75-181 75-75 181v192zm832 96v576q0 40-28 68t-68 28H416q-40 0-68-28t-28-68V864q0-40 28-68t68-28h32V576q0-184 132-316t316-132 316 132 132 316v192h32q40 0 68 28t28 68z" />
+        </symbol>
+
+        <symbol id="icon-user" viewBox="0 0 1792 1792">
+          <path d="M1600 1405q0 120-73 189.5t-194 69.5H459q-121 0-194-69.5T192 1405q0-53 3.5-103.5t14-109T236 1084t43-97.5 62-81 85.5-53.5T538 832q9 0 42 21.5t74.5 48 108 48T896 971t133.5-21.5 108-48 74.5-48 42-21.5q61 0 111.5 20t85.5 53.5 62 81 43 97.5 26.5 108.5 14 109 3.5 103.5zm-320-893q0 159-112.5 271.5T896 896 624.5 783.5 512 512t112.5-271.5T896 128t271.5 112.5T1280 512z" />
+        </symbol> 
+      </svg>
+  
+    </main>
+
+</body>
+</html>
+

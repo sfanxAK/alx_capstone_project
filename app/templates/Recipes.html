@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="{{ url_for('static', filename='media/favicon.ico') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <title>Recipe Lab : Recipes</title>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="nav-wrapper">
+            <!-- Logo -->
+            <div class="logo-container">
+                <img class="logo" src="{{ url_for('static', filename='media/recipelab_logo.png') }}" alt="Logo">
+            </div>
+
+            <!-- Middle Navigation Bar -->
+            <div class="middle-nav">
+                <ul class="middle-nav-tabs">
+                    <li class="middle-nav-tab">
+                        <a href="{{ url_for('home') }}" class="{{ 'active' if request.endpoint == 'home' else '' }}">Home</a>
+                    </li>
+                    <li class="middle-nav-tab">
+                        <a href="{{ url_for('Recipes') }}" class="{{ 'active' if request.endpoint == 'Recipes' else '' }}">Recipes</a>
+                    </li>
+                    <li class="middle-nav-tab">
+                        <a href="{{ url_for('about_us') }}" class="{{ 'active' if request.endpoint == 'about_us' else '' }}">About</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right Navigation Bar -->
+            <nav class="nav-menu">
+                <input type="checkbox" id="menuToggle" class="menu-toggle">
+                <label class="menu-btn" for="menuToggle">
+                    <span class="menu-icon"></span>
+                </label>
+                <div class="nav-container">
+                    <!-- Mobile Menu Items -->
+                    <ul class="mobile-nav-tabs">
+                        <li class="mobile-nav-tab">
+                            <a href="{{ url_for('home') }}" class="{{ 'active' if request.endpoint == 'home' else '' }}">Home</a>
+                        </li>
+                        <li class="mobile-nav-tab">
+                            <a href="{{ url_for('Recipes') }}" class="{{ 'active' if request.endpoint == 'Recipes' else '' }}">Recipes</a>
+                        </li>
+                        <li class="mobile-nav-tab">
+                            <a href="{{ url_for('about_us') }}" class="{{ 'active' if request.endpoint == 'about_us' else '' }}">About</a>
+                        </li>
+                        <li class="mobile-nav-tab joinus-but">
+                            <a href="{{ url_for('register') }}">
+                                <button>Join us</button>
+                            </a>
+                        </li>
+                        <li class="mobile-nav-tab">
+                            <a href="{{ url_for('login') }}" class="nav-link">
+                                <button>Login</button>
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Desktop Nav Tabs -->
+                    <ul class="desktop-nav-tabs">
+                        <li class="nav-tab joinus-but">
+                            <a href="{{ url_for('register') }}">
+                                <button>Join us</button>
+                            </a>
+                        </li>
+                        <li class="nav-tab login-but">
+                            <a href="{{ url_for('login') }}" class="nav-link">
+                                <button>Login</button>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+        <!-- Title Section -->
+        <div class="hero">
+            <div class="hero-overlay">
+              <h1>Discover Delicious Recipes</h1>
+              <div class="search-container">
+                <input type="text" placeholder="Search recipes..." class="search-input">
+                <button class="search-button">Search</button>
+              </div>
+            </div>
+        </div>
+        
+        <main class="recipes-grid">
+            <article class="recipe-card">
+              <div class="recipe-image">
+                <img src="https://images.unsplash.com/photo-1612182062966-c8fe45ecbf73?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Classic Pancakes">
+              </div>
+              <div class="recipe-content">
+                <h2>Classic Fluffy Pancakes</h2>
+                <p>Light and fluffy pancakes perfect for a weekend breakfast. Served with maple syrup and fresh berries.</p>
+                <a href="{{ url_for('login') }}" class="nav-link"><button class="view-recipe" >View Recipe</button></a>
+              </div>
+            </article>
+        
+            <article class="recipe-card">
+              <div class="recipe-image">
+                <img src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?auto=format&fit=crop&q=80&w=2000" alt="Pasta Carbonara">
+              </div>
+              <div class="recipe-content">
+                <h2>Authentic Pasta Carbonara</h2>
+                <p>Creamy and delicious pasta carbonara made with eggs, pecorino cheese, and crispy guanciale.</p>
+                <a href="{{ url_for('login') }}" class="nav-link"><button class="view-recipe" >View Recipe</button></a>
+              </div>
+            </article>
+        
+            <article class="recipe-card">
+              <div class="recipe-image">
+                <img src="https://images.unsplash.com/photo-1698688334089-c68105801d02?auto=format&fit=crop&q=80&w=2000" alt="Tiramisu">
+              </div>
+              <div class="recipe-content">
+                <h2>Classic Tiramisu</h2>
+                <p>Traditional Italian dessert with layers of coffee-soaked ladyfingers and mascarpone cream.</p>
+                <a href="{{ url_for('login') }}" class="nav-link"><button class="view-recipe" >View Recipe</button></a>
+              </div>
+            </article>
+        
+            <article class="recipe-card">
+              <div class="recipe-image">
+                <img src="https://images.unsplash.com/photo-1542354254-d856f94968ea?auto=format&fit=crop&q=80&w=2000" alt="Buddha Bowl">
+              </div>
+              <div class="recipe-content">
+                <h2>Nourishing Buddha Bowl</h2>
+                <p>A healthy and colorful bowl filled with quinoa, roasted vegetables, and tahini dressing.</p>
+                <a href="{{ url_for('login') }}" class="nav-link"><button class="view-recipe" >View Recipe</button></a>
+              </div>
+            </article>
+        
+            <article class="recipe-card">
+              <div class="recipe-image">
+                <img src="https://images.unsplash.com/photo-1709195902163-7eee13e78970?auto=format&fit=crop&q=80&w=2000" alt="Chocolate Cake">
+              </div>
+              <div class="recipe-content">
+                <h2>Double Chocolate Cake</h2>
+                <p>Rich and moist chocolate cake with dark chocolate ganache frosting.</p>
+                <a href="{{ url_for('login') }}" class="nav-link"><button class="view-recipe" >View Recipe</button></a>
+              </div>
+            </article>
+        
+            <article class="recipe-card">
+              <div class="recipe-image">
+                <img src="https://www.recipetineats.com/tachyon/2019/02/Thai-Green-Curry_5.jpg?auto=format&fit=crop&q=80&w=2000" alt="Thai Green Curry">
+              </div>
+              <div class="recipe-content">
+                <h2>Thai Green Curry</h2>
+                <p>Aromatic and creamy Thai curry with vegetables and your choice of protein.</p>
+                <a href="{{ url_for('login') }}" class="nav-link"><button class="view-recipe" >View Recipe</button></a>
+              </div>
+            </article>
+
+        
+        </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="Footer-Section">
+            <div class="footer-container">
+                <div class="logo-footer-container">
+                    <img class="logo-footer" src="{{ url_for('static', filename='media/recipelab_logo.png') }}" alt="Footer Logo">
+                </div>
+                <div class="icons">
+                    <a class="Social-icon Facebook_icon" href="#" aria-label="Facebook">
+                        <img src="{{ url_for('static', filename='media/facebook_icon.png') }}" alt="Facebook logo">
+                    </a>
+                    <a class="Social-icon Twitter_icon" href="#" aria-label="Twitter">
+                        <img src="{{ url_for('static', filename='media/x_icon.png') }}" alt="Twitter logo">
+                    </a>
+                    <a class="Social-icon Instagram_icon" href="#" aria-label="Instagram">
+                        <img src="{{ url_for('static', filename='media/Instagram_icon.png') }}" alt="Instagram logo">
+                    </a>
+                </div>
+            </div>
+            <p>&copy; 2024 RecipeLab. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
