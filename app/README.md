@@ -17,71 +17,87 @@ This project is a blogging platform built using HTML, CSS, and Flask. designed t
 - **Responsive Design**: The platform is optimized for both desktop and mobile devices
 - **Secure Authentication**: The platform uses secure authentication to protect user data
 
-## Project Structure
-
-app/: Contains all the main application files.
-  |
-  |____ static/: Contains static files such as CSS and media assets.
-  |         |
-  |         |____ home.css: Main styling for the homepage.
-  |         |
-  |         |____ style_dashboard.css: Styling for the dashboard.
-  |         |
-  |         |____ style_login.css: Styling for the login page.   
-  |         |
-  |         |____ style_register.css: Styling for the register page.
-  |         |
-  |         |____ media/: Contains media files like images.
-  |
-  |
-  |____ templates/: Contains HTML templates for the application.
-  |         |
-  |         |____ home.html: Template for the homepage.
-  |         |
-  |         |____ Recipes.html: Recipe page where users can view and share recipes.
-  |         |
-  |         |____ about_us.html: About Us page.
-  |         |
-  |         |____ login.html: Template for the login page.
-  |         |
-  |         |____ register.html: Template for the register page.
-  |         |
-  |         |____ error.html: Error page for unexpected errors.
-  |         |
-  |         |____ dashboard.html: Template for the dashboard.
-  |         
-  |
-  |____ app.py: Main Flask application file that routes requests and handles business logic.
-  |
-  |____ README.md: Project documentation.
-
-
-
 ## Technologies Used
 
-<img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white">: A micro web framework for Python.
+<img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white">   :  A micro web framework for Python.
 
-<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="Html_badget"/> : For front-end development.
+<img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="Html_badget"/>   :  For front-end development.
 
-<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="css_badget" /> : For front-end styling.
+<img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="css_badget" />   :  For front-end styling.
 
-<img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL_badget"> : Relational database for storing user and blog data.
+<img src="https://img.shields.io/badge/MySQL-005C84?style=for-the-badge&logo=mysql&logoColor=white" alt="MySQL_badget">   :  Relational database for storing user and blog data.
 
-<img src="![Jinja](https://img.shields.io/badge/jinja-white.svg?style=for-the-badge&logo=jinja&logoColor=black)">: Template engine for rendering dynamic HTML.
+<img src="https://img.shields.io/badge/jinja-white.svg?style=for-the-badge&logo=jinja&logoColor=black">   :  Template engine for rendering dynamic HTML.
+
+## Project Structure
+
+app/                  # Contains all the main application files
+│
+├── static/           # Contains static files such as CSS and media assets
+│   ├── home.css              # Main styling for the homepage
+│   ├── style_dashboard.css   # Styling for the dashboard
+│   ├── style_login.css       # Styling for the login page
+│   ├── style_register.css    # Styling for the register page
+│   ├── media/                # Contains media files like images
+│
+├── templates/        # Contains HTML templates for the application
+│   ├── home.html          # Template for the homepage
+│   ├── Recipes.html       # Recipe page where users can view and share recipes
+│   ├── about_us.html      # About Us page
+│   ├── login.html         # Template for the login page
+│   ├── register.html      # Template for the register page
+│   ├── error.html         # Error page for unexpected errors
+│   ├── dashboard.html     # Template for the dashboard
+│
+├── app.py            # Main Flask application file that routes requests and handles business logic
+├── README.md         # Project documentation
+
 
 
 ## Installation
 
 To run the project, follow these steps:
-1. Clone the repository using `git clone https://github.com/your-username/your-r
-2. Install Flask using pip: `pip install flask`
-3. Install Flask-SQLAlchemy for database operations: `pip install flask-sqlalchemy`
-4. Install Flask-WTF for form handling: `pip install flask-wtf`
-5. Install Flask-Login for user authentication: `pip install flask-login`
-6. Install Flask-Session for session management: `pip install flask-session`
+
+1. Clone the repository using 
+```bash
+git clone https://github.com/yourusername/blogging-platform.git
+cd blogging-platform
+```
+
+2. Install Flask using pip: 
+```bash
+pip install flask
+```
+
+3. Install Flask-SQLAlchemy for database operations:
+ ```bash
+ pip install flask-sqlalchemy
+ ```
+
+4. Install Flask-WTF for form handling:
+ ```bash
+ pip install flask-wtf
+ ```
+
+5. Install Flask-Login for user authentication:
+ ```bash
+ pip install flask-login
+ ```
+
+6. Install Flask-Session for session management:
+ ```bash
+ pip install flask-session
+ ```
+
 7. Create a new SQLite database file in the project directory.
-8. Run the application using `python app.py`
+
+8. Run the application using 
+```bash
+python app.py
+```
+
 9. Access the application at `http://localhost:5000` in your web browser.
+
 10. Register a new user and log in to access the dashboard.
 
 
